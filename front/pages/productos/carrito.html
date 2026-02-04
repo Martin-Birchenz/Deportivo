@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Club Deportivo Nogoyá | Estos son los productos que agregaste</title>
+    <meta name="description" content="Chequeá que todo esté correcto." />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="icon" href="../../public/logo-deportivo.png" />
+    <link rel="stylesheet" href="../../style/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <a href="../../index.html" class="navbar-brand fw-bold">
+          <img
+            src="../../public/logo-deportivo.png"
+            alt="Logo Oficial Del Depor"
+            width="50"
+            class="me-2"
+          />
+          DEPORTIVO NOGOYÁ
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="../../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../deportes/deportes.html">Deportes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../historia/historia.html">Historia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./indumentaria.html">Indumentaria</a>
+            </li>
+            <li class="nav-item">
+              <a href="./carrito.html" class="nav-link">
+                <i class="fa fa-shopping-cart"></i> <span>0</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-outline-light ms-lg-3 px-3"
+                href="../socios/socios.html"
+                >Hacete socio</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-outline-light text-danger ms-lg-3"
+                href="../sesion/login.html"
+                >Cerrar sesión</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="py-5 bg-light min-vh-100">
+        <div class="container">
+          <h2 class="font-title mb-5 fw-bold text-uppercase tracking-wider">
+            Planilla de Pedido
+          </h2>
+
+          <div class="row g-4">
+            <div class="col-lg-8">
+              <div class="card border-0 shadow-sm p-4 rounded-0">
+                <div class="table-responsive">
+                  <table class="table align-middle">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col" class="py-3">
+                          Descripción del Producto
+                        </th>
+                        <th scope="col" class="py-3 text-center">Cantidad</th>
+                        <th scope="col" class="py-3 text-end">Subtotal</th>
+                      </tr>
+                    </thead>
+                    <tbody id="body-carrito">
+                      <tr>
+                        <td class="py-4">
+                          <div class="fw-bold">Camiseta Titular CDN</div>
+                          <div class="small text-muted">Talle: L</div>
+                        </td>
+                        <td class="text-center">
+                          <div
+                            class="d-flex justify-content-center align-items-center"
+                          >
+                            <button
+                              class="btn btn-sm btn-outline-dark px-2 py-0"
+                              onclick="restarCantidad(1)"
+                            >
+                              -
+                            </button>
+                            <span class="mx-3 fw-bold">1</span>
+                            <button
+                              class="btn btn-sm btn-outline-dark px-2 py-0"
+                              onclick="sumarCantidad(1)"
+                            >
+                              +
+                            </button>
+                          </div>
+                        </td>
+                        <td class="text-end fw-bold">$30.000</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                  <button
+                    class="btn btn-outline-danger btn-sm rounded-0 text-uppercase fw-bold"
+                    onclick="reiniciarCarrito()"
+                  >
+                    <i class="fas fa-trash-alt me-2"></i> Reiniciar Carrito
+                  </button>
+                  <a
+                    href="../productos/indumentaria.html"
+                    class="btn btn-outline-secondary btn-sm rounded-0 text-uppercase fw-bold"
+                  >
+                    <i class="fas fa-arrow-left me-2"></i> Seguir Comprando
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div
+                class="card border-0 shadow-sm p-4 rounded-0 bg-white border-top border-dark border-4"
+              >
+                <h4 class="fw-bold mb-4">Total del Pedido</h4>
+                <div class="d-flex justify-content-between mb-2">
+                  <span>Monto a transferir:</span>
+                  <span class="fw-bold fs-3" id="total-pedido">$30.000</span>
+                </div>
+                <hr />
+                <div
+                  class="bg-grey p-3 mb-4 border border-dark border-opacity-10"
+                >
+                  <h6 class="fw-bold mb-2 small text-uppercase">
+                    Datos para la Transferencia:
+                  </h6>
+                  <p class="mb-1 small">
+                    <strong>Titular:</strong> Club Deportivo Nogoyá
+                  </p>
+                  <p class="mb-1 small">
+                    <strong>Alias:</strong> depor.nogoya.mp
+                  </p>
+                  <p class="mb-0 small"><strong>Banco:</strong> Mercado Pago</p>
+                </div>
+                <button
+                  onclick="enviarPedidoWhatsApp()"
+                  class="btn btn-success w-100 rounded-0 fw-bold py-3 shadow"
+                >
+                  <i class="fab fa-whatsapp me-2"></i> ENVIAR PEDIDO Y
+                  COMPROBANTE
+                </button>
+                <p class="small text-muted mt-3">
+                  * Al hacer clic, se abrirá un chat de WhatsApp con el detalle
+                  de tu compra para que adjuntes el comprobante.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-5">
+      <div class="container">
+        <div class="row g-4 text-start">
+          <div class="col-md-4">
+            <h5 class="fw-bold mb-3">DEPORTIVO NOGOYÁ</h5>
+            <p class="fw-bold">
+              El orgullo del Barrio Lourdes desde 1944. Un club, una familia,
+              una pasión.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-instagram fa-lg"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-facebook fa-lg"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h5 class="fw-bold mb-3">Ubicación</h5>
+            <div class="google-maps">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1915.293169283138!2d-59.79037416440854!3d-32.39098173442697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b1359efe65c869%3A0xfa8b89870acf9cbb!2sClub%20Deportivo%20Nogoy%C3%A1%20(CDN)!5e1!3m2!1ses-419!2sar!4v1770046432963!5m2!1ses-419!2sar"
+                width="100%"
+                height="200"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h5 class="fw-bold mb-3">Contacto</h5>
+            <ul class="list-unstyled small text-muted">
+              <li>
+                <i class="fas fa-map-marker-alt me-2"></i> Bulevar España,
+                E3216, Nogoyá, Entre Ríos.
+              </li>
+              <li><i class="fas fa-phone me-2"></i> +54 3435 000000</li>
+              <li>
+                <i class="fas fa-envelope me-2"></i> contacto@depornogoya.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="my-4 bg-secondary" />
+        <p class="text-center fw-bold">
+          © 2026 Club Deportivo Nogoyá. Desarrollado por Martín.
+        </p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

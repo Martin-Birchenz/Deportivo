@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Club Deportivo Nogoyá | El Depor del Barrio Lourdes</title>
+    <meta
+      name="description"
+      content="Historia, productos, beneficios, y más."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="icon" href="./public/logo-deportivo.png" />
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <a href="index.html" class="navbar-brand fw-bold">
+          <img
+            src="./public/logo-deportivo.png"
+            alt="Logo Oficial Del Depor"
+            width="50"
+            class="me-2"
+          />
+          DEPORTIVO NOGOYÁ
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/deportes/deportes.html"
+                >Deportes</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/historia/historia.html"
+                >Historia</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/productos/indumentaria.html"
+                >Indumentaria</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-outline-light ms-lg-3 px-3"
+                href="./pages/socios/socios.html"
+                >Hacete socio</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-outline-light text-danger ms-lg-3"
+                href="./pages/sesion/login.html"
+                >Cerrar sesión</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero-section">
+      <div class="container text-center text-white">
+        <h1 class="display-1 fw-bold tracking-tight">CLUB DEPORTIVO NOGOYÁ</h1>
+        <p class="lead fs-2">El orgullo del Barrio Lourdes desde 1944.</p>
+        <a href="./pages/socios/socios.html" class="btn btn-outline-light"
+          >Hacete Socio Hoy</a
+        >
+      </div>
+    </header>
+
+    <main>
+      <!-- Novedades del club, últimas noticias, vinculación con Instagram -->
+      <section class="py-5">
+        <div class="container">
+          <h2 class="section-title">Novedades del Depor</h2>
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="ratio ratio-1x1 bg-light border"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="ratio ratio-1x1 bg-light border"></div>
+            </div>
+            <div class="col-md-4">
+              <div class="ratio ratio-1x1 bg-light border"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Breve historia del club -->
+      <section class="py-5 bg-grey">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h2 class="text-start fw-bold">Nuestra Historia</h2>
+              <p class="fs-5 fw-bold text-start">
+                Desde 1944, el Depor es el corazón del Barrio Lourdes. Forjado
+                por vecinos y para vecinos...
+              </p>
+              <a
+                href="./pages/historia/historia.html"
+                class="btn btn-outline-dark p-3 mt-3 fs-5"
+                >Conocé más sobre nuestars raíces</a
+              >
+            </div>
+            <div class="col-md-6">
+              <img
+                src="./public/hinchada-cdn.jpg"
+                class="img-fluid grayscale"
+                alt="Historia del club de Barrio Lourdes"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Los deportes del club -->
+      <section class="py-5 bg-light">
+        <div class="container text-center">
+          <h2 class="section-title">Los deportes que el Club te ofrece</h2>
+          <div class="row g-4 mt-4">
+            <!-- Fútbol -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sport-card p-4 bg-white shadow-sm grayscale">
+                <img
+                  src="./public/futbol-cdn.jpg"
+                  alt="El corazón del Depor, el fútbol"
+                  class="img-fluid grayscale"
+                />
+                <h5 class="fw-bold mt-2">Fútbol</h5>
+              </div>
+            </div>
+
+            <!-- Ténis -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sport-card p-4 bg-white shadow">
+                <img
+                  src="./public/tenis-cdn.jpg"
+                  alt="Tenis en Deportivo"
+                  class="img-fluid grayscale"
+                />
+                <h5 class="fw-bold mt-2">Tenis</h5>
+              </div>
+            </div>
+
+            <!-- Pádel -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sport-card p-4 bg-white shadow-sm grayscale">
+                <img
+                  src="./public/padel-cdn.jpg"
+                  alt="Pádel en Deportivo"
+                  class="img-fluid grayscale"
+                />
+                <h5 class="fw-bold mt-2">Pádel</h5>
+              </div>
+            </div>
+
+            <!-- Pelota Paleta -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sport-card p-4 bg-white shadow-sm grayscale">
+                <img
+                  src="./public/pelota-paleta-cdn.webp"
+                  alt="Capital Provincial de Pelota Paleta, en el Depor"
+                  class="img-fluid grayscale"
+                />
+                <h5 class="fw-bold mt-2">Pelota Paleta</h5>
+              </div>
+            </div>
+
+            <!-- Natación -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sport-card p-4 bg-white shadow-sm grayscale">
+                <img
+                  src="./public/natacion-cdn.jpeg"
+                  alt="Natación y colonia en el Depor"
+                  class="img-fluid grayscale"
+                />
+                <h5 class="fw-bold mt-2">Natación</h5>
+              </div>
+            </div>
+
+            <!-- Bochas -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sport-card p-4 bg-white shadow-sm grayscale">
+                <img
+                  src="./public/bochas-cdn.png"
+                  alt="Bochas en el Depor"
+                  class="img-fluid grayscale"
+                />
+                <h5 class="fw-bold mt-2">Bochas</h5>
+              </div>
+            </div>
+
+            <!-- Canchas Fútbol 5 -->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="sport-card p-4 bg-white shadow-sm grayscale">
+                <img
+                  src="./public/futbol-f5-cdn.png"
+                  alt="Canchas de fútbol 5 en el Depor"
+                  class="img-fluid grayscale"
+                />
+                <h5 class="fw-bold mt-2">Canchas de Fútbol 5</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Apartado para socios -->
+      <section class="py-5 bg-black text-white text-center">
+        <div class="container">
+          <h2 class="section-title display-5 fw-bold mb-4">
+            Formá parte de la familia del Depor
+          </h2>
+
+          <p class="lead mb-5 fw-bold">
+            Tu aporte nos ayuda a seguir creciendo. Disfrutá de todas nuestras
+            instalaciones y beneficios.
+          </p>
+          <a
+            href="./pages/socios/socios.html"
+            class="btn btn-outline-light btn-lg p-3"
+            >¡Quiero ser Socio!</a
+          >
+        </div>
+      </section>
+
+      <!-- Apartado para mostrar dos productos, y que de ahí pueda seguir viendo en la otra página -->
+      <section class="py-5">
+        <div class="container">
+          <h2 class="section-title">Indumentaria Oficial Del Depor</h2>
+          <div class="row justify-content-center">
+            <div class="col-md-4">
+              <div class="card border-0 text-center">
+                <img
+                  src="./public/casaca-titular-cdn.png"
+                  class="card-img-top shadow-sm"
+                  alt="¡La casaca titular del Depor!"
+                />
+                <div class="card-body">
+                  <h5 class="fw-bold">Camiseta Titular</h5>
+                  <p class="text-muted">$30.000</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card border-0 text-center">
+                <img
+                  src="./public/rompevientos-cdn.png"
+                  class="card-img-top shadow-sm"
+                  alt="¡La Rompevientos del Depor!"
+                />
+                <div class="card-body">
+                  <h5 class="fw-bold">Campera Rompevientos</h5>
+                  <p class="text-muted">$60.000</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-5">
+              <div class="col-12 text-center">
+                <a
+                  href="./pages/productos/indumentaria.html"
+                  class="btn btn-outline-dark btn-lg p-3"
+                  >Ver catalogo completo</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Respuestas claras a preguntas frecuentes -->
+      <section class="py-5 bg-grey">
+        <div class="container">
+          <h2 class="section-title text-center">Preguntas Frecuentes</h2>
+          <div
+            class="accordion accordion-flush mx-auto"
+            id="accordionFAQ"
+            style="max-width: 800px"
+          >
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#q1"
+                >
+                  ¿Cómo pago mi cuota social?
+                </button>
+              </h2>
+              <div
+                id="q1"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFAQ"
+              >
+                <div class="accordion-body">
+                  Podés pagar en la secretaría del club o mediante transferencia
+                  bancaria.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#q2"
+                >
+                  ¿Cuáles son los requisitos para asociarse?
+                </button>
+              </h2>
+              <div
+                id="q2"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFAQ"
+              >
+                <div class="accordion-body">
+                  Solo necesitás presentar tu DNI y completar el formulario en
+                  secretaría o a través de esta web.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#q3"
+                >
+                  ¿Hay actividades para niños y niñas?
+                </button>
+              </h2>
+              <div
+                id="q3"
+                class="accordion-collapse collapse"
+                data-bs-parent="#accordionFAQ"
+              >
+                <div class="accordion-body">
+                  Contamos con escuelas de iniciación deportiva en fútbol,
+                  natación y tenis para todas las edades.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Formulario para que el usuario pueda mandar cualquier duda -->
+      <section class="py-5">
+        <div class="container" style="max-width: 600px">
+          <h2 class="section-title">Contactanos</h2>
+          <form>
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Nombre completo"
+              />
+            </div>
+            <div class="mb-3">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Correo electrónico"
+              />
+            </div>
+            <div class="mb-3">
+              <textarea
+                class="form-control"
+                rows="4"
+                placeholder="Tu consulta"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark w-100">
+              Enviar mensaje
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="py-5">
+      <div class="container">
+        <div class="row g-4 text-start">
+          <div class="col-md-4">
+            <h5 class="fw-bold mb-3">DEPORTIVO NOGOYÁ</h5>
+            <p class="fw-bold">
+              El orgullo del Barrio Lourdes desde 1944. Un club, una familia,
+              una pasión.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-instagram fa-lg"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-facebook fa-lg"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h5 class="fw-bold mb-3">Ubicación</h5>
+            <div class="google-maps">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1915.293169283138!2d-59.79037416440854!3d-32.39098173442697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b1359efe65c869%3A0xfa8b89870acf9cbb!2sClub%20Deportivo%20Nogoy%C3%A1%20(CDN)!5e1!3m2!1ses-419!2sar!4v1770046432963!5m2!1ses-419!2sar"
+                width="100%"
+                height="200"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h5 class="fw-bold mb-3">Contacto</h5>
+            <ul class="list-unstyled small text-muted">
+              <li>
+                <i class="fas fa-map-marker-alt me-2"></i> Bulevar España,
+                E3216, Nogoyá, Entre Ríos.
+              </li>
+              <li><i class="fas fa-phone me-2"></i> +54 3435 000000</li>
+              <li>
+                <i class="fas fa-envelope me-2"></i> contacto@depornogoya.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="my-4 bg-secondary" />
+        <p class="text-center fw-bold">
+          © 2026 Club Deportivo Nogoyá. Desarrollado por Martín.
+        </p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

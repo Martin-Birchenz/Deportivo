@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Club Deportivo Nogoyá | Forma parte de esta familia</title>
+    <meta
+      name="description"
+      content="Disfrutá de todos nuestros beneficios e instalaciones."
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="icon" href="../../public/logo-deportivo.png" />
+    <link rel="stylesheet" href="../../style/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <a href="../../index.html" class="navbar-brand fw-bold">
+          <img
+            src="../../public/logo-deportivo.png"
+            alt="Logo Oficial Del Depor"
+            width="50"
+            class="me-2"
+          />
+          DEPORTIVO NOGOYÁ
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="../../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../deportes/deportes.html">Deportes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../historia/historia.html">Historia</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../productos/indumentaria.html"
+                >Indumentaria</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-outline-light ms-lg-3 px-3"
+                href="./socios.html"
+                >Hacete socio</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link btn btn-outline-light text-danger ms-lg-3"
+                href="../sesion/login.html"
+                >Cerrar sesión</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="py-5 socios">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h1 class="display-4 fw-bold">Hacete Socio</h1>
+          <p class="fw-bold">
+            Unite a la familia del Barrio Lourdes y disfrutá del club todos los
+            días.
+          </p>
+        </div>
+
+        <div class="row g-5">
+          <div class="col-lg-5">
+            <h3 class="fw-bold mb-4">Tus Beneficios</h3>
+            <ul class="list-unstyled">
+              <li class="mb-3 d-flex align-items-start">
+                <i class="fas fa-check-circle me-3 mt-1"></i>
+                <div>
+                  <strong>Acceso a las instalaciones:</strong> Uso de pileta,
+                  quincho y espacios comunes.
+                </div>
+              </li>
+              <li class="mb-3 d-flex align-items-start">
+                <i class="fas fa-check-circle me-3 mt-1"></i>
+                <div>
+                  <strong>Descuentos en Deporte:</strong> Tarifas diferenciadas
+                  en Fútbol 5, Tenis y Pádel.
+                </div>
+              </li>
+              <li class="mb-3 d-flex align-items-start">
+                <i class="fas fa-check-circle me-3 mt-1"></i>
+                <div>
+                  <strong>Tienda Oficial:</strong> 15% de descuento en toda la
+                  indumentaria del club.
+                </div>
+              </li>
+              <li class="mb-3 d-flex align-items-start">
+                <i class="fas fa-check-circle me-3 mt-1"></i>
+                <div>
+                  <strong>Voz y Voto:</strong> Participá en las asambleas y
+                  decidí el futuro del club.
+                </div>
+              </li>
+            </ul>
+            <div class="mt-4 p-4 bg-black text-white">
+              <p class="small mb-0 italic fw-bold">
+                "Ser socio es más que un carnet, es el compromiso de mantener
+                vivo nuestro club."
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="card shadow-sm p-4 p-md-5">
+              <h3 class="fw-bold mb-4">Completá tus datos</h3>
+              <form id="form-registro-socio">
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">Nombre</label>
+                    <input
+                      type="text"
+                      class="form-control rounded-0"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label small fw-bold">Apellido</label>
+                    <input
+                      type="text"
+                      class="form-control rounded-0"
+                      required
+                    />
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label small fw-bold">DNI</label>
+                    <input
+                      type="number"
+                      class="form-control rounded-0"
+                      required
+                    />
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label small fw-bold"
+                      >Correo Electrónico</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control rounded-0"
+                      required
+                    />
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label small fw-bold"
+                      >Categoría de Socio</label
+                    >
+                    <select class="form-select rounded-0">
+                      <option selected disabled>Elegir categoría...</option>
+                      <option value="activo">
+                        Socio Activo (Mayores de 18)
+                      </option>
+                      <option value="cadete">
+                        Socio Cadete (Menores de 18)
+                      </option>
+                      <option value="familiar">Grupo Familiar</option>
+                    </select>
+                  </div>
+                  <div class="col-12 mt-4">
+                    <button
+                      type="submit"
+                      class="btn btn-dark btn-lg w-100 rounded-0"
+                    >
+                      Solicitar Asociación
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="py-5">
+      <div class="container">
+        <div class="row g-4 text-start">
+          <div class="col-md-4">
+            <h5 class="fw-bold mb-3">DEPORTIVO NOGOYÁ</h5>
+            <p class="fw-bold">
+              El orgullo del Barrio Lourdes desde 1944. Un club, una familia,
+              una pasión.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-instagram fa-lg"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-facebook fa-lg"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h5 class="fw-bold mb-3">Ubicación</h5>
+            <div class="google-maps">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1915.293169283138!2d-59.79037416440854!3d-32.39098173442697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b1359efe65c869%3A0xfa8b89870acf9cbb!2sClub%20Deportivo%20Nogoy%C3%A1%20(CDN)!5e1!3m2!1ses-419!2sar!4v1770046432963!5m2!1ses-419!2sar"
+                width="100%"
+                height="200"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <h5 class="fw-bold mb-3">Contacto</h5>
+            <ul class="list-unstyled small text-muted">
+              <li>
+                <i class="fas fa-map-marker-alt me-2"></i> Bulevar España,
+                E3216, Nogoyá, Entre Ríos.
+              </li>
+              <li><i class="fas fa-phone me-2"></i> +54 3435 000000</li>
+              <li>
+                <i class="fas fa-envelope me-2"></i> contacto@depornogoya.com
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="my-4 bg-secondary" />
+        <p class="text-center fw-bold">
+          © 2026 Club Deportivo Nogoyá. Desarrollado por Martín.
+        </p>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

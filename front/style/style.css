@@ -1,0 +1,219 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: white;
+  color: black;
+}
+
+.bg-black {
+  background-color: #000000;
+}
+
+.bg-grey {
+  background-color: #f4f4f4;
+}
+
+.navbar-brand:hover {
+  opacity: 0.7;
+}
+
+.nav-link {
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+.hero-section {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 30%, rgba(0, 0, 0, 0.7) 100%), url("../public/copa-victoria-cdn.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.hero-section h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 4rem;
+  color: white;
+}
+.hero-section p {
+  color: #ffffff;
+  font-weight: bold;
+}
+.hero-section a {
+  color: #ffffff;
+  font-weight: bold;
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  text-decoration: none;
+}
+.hero-section a:hover {
+  color: #000000;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-light {
+  padding: 5px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+}
+.btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #ffffff;
+}
+
+.btn-outline-dark {
+  padding: 5px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+}
+.btn-outline-dark:hover {
+  background-color: #000000;
+  color: #ffffff;
+  border: 2px solid #000000;
+}
+
+.section-title {
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+.grayscale:hover {
+  filter: grayscale(0%);
+}
+
+section {
+  padding: 80px 0;
+}
+
+.sport-card {
+  border: 1px solid #ddd;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+.sport-card:hover {
+  transform: translateY(-10px);
+}
+.sport-card img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+.sport-card h5 {
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.card-body h5 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+}
+.card-body .text-muted {
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+footer {
+  background-color: #000000;
+  color: #ffffff;
+}
+footer p,
+footer a,
+footer li {
+  color: #ffffff;
+}
+footer h5 {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  text-transform: uppercase;
+}
+
+.sport-row {
+  background-color: #ffffff;
+  overflow: hidden;
+  border-bottom: 1px solid #f4f4f4;
+}
+.sport-row .sport-image-container {
+  height: 450px;
+  overflow: hidden;
+}
+.sport-row .sport-image-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.8s ease;
+}
+.sport-row:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+.sport-row h3 {
+  font-family: "Playfair Display", serif;
+  letter-spacing: -1px;
+}
+.sport-row .hazañas {
+  font-family: "Roboto", sans-serif;
+  background-color: #f4f4f4;
+}
+
+.historia h2 {
+  font-family: "Playfair Display", serif;
+}
+.historia p {
+  font-family: "Roboto", sans-serif;
+}
+
+.product-card {
+  transition: all 0.5s ease;
+}
+.product-card .product-image-wrapper {
+  background-color: #f4f4f4;
+  padding: 30px;
+}
+.product-card .product-image-wrapper .product-img {
+  transition: transform 0.5s ease;
+}
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+.product-card:hover .product-img {
+  transform: scale(1.1);
+}
+
+.socios h1 {
+  font-family: "Playfair Display", serif;
+}
+
+/*# sourceMappingURL=style.css.map */

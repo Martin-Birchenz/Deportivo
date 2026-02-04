@@ -1,0 +1,30 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "chokidar": "^4.0.3",
+    "cors": "^2.8.6",
+    "detect-libc": "^2.1.2",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "font-awesome": "^4.7.0",
+    "immutable": "^5.1.4",
+    "is-extglob": "^2.1.1",
+    "is-glob": "^4.0.3",
+    "mysql2": "^3.16.2",
+    "node-addon-api": "^7.1.1",
+    "nodemon": "^3.1.11",
+    "picomatch": "^4.0.3",
+    "readdirp": "^4.1.2",
+    "sass": "^1.97.3",
+    "source-map-js": "^1.2.1"
+  },
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

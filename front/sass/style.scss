@@ -1,0 +1,278 @@
+$black: #000000;
+$white: #ffffff;
+$grey: #f4f4f4;
+$title: "Playfair Display", serif;
+$text: "Roboto", sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $text;
+  background-color: white;
+  color: black;
+}
+
+.bg-black {
+  background-color: $black;
+}
+
+.bg-grey {
+  background-color: $grey;
+}
+
+.navbar-brand {
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.nav-link {
+  color: $white;
+  font-family: $text;
+  font-weight: bold;
+  font-size: 0.9rem;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.hero-section {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.4) 30%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("../public/copa-victoria-cdn.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+
+  h1 {
+    font-family: $title;
+    font-size: 4rem;
+    color: white;
+  }
+
+  p {
+    color: $white;
+    font-weight: bold;
+  }
+
+  a {
+    color: $white;
+    font-weight: bold;
+    font-family: $title;
+    font-size: 25px;
+    border: 2px solid $white;
+    border-radius: 10px;
+    padding: 10px;
+    text-decoration: none;
+
+    &:hover {
+      color: $black;
+      background-color: $white;
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+.btn-outline-light {
+  padding: 5px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $white;
+    color: $black;
+    border: 2px solid $white;
+  }
+}
+
+.btn-outline-dark {
+  padding: 5px;
+  font-weight: bold;
+  border: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+    border: 2px solid $black;
+  }
+}
+
+// Secciones del main
+
+.section-title {
+  font-family: $title;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.grayscale {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+
+  &:hover {
+    filter: grayscale(0%);
+  }
+}
+
+section {
+  padding: 80px 0;
+}
+
+.sport-card {
+  border: 1px solid #ddd;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  h5 {
+    font-family: $title;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+}
+
+.card-body {
+  h5 {
+    font-family: $title;
+    font-size: 1.4rem;
+  }
+
+  .text-muted {
+    font-family: $text;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+}
+
+// Pie de página
+
+footer {
+  background-color: $black;
+  color: $white;
+
+  p,
+  a,
+  li {
+    color: $white;
+  }
+
+  h5 {
+    color: $white;
+    font-family: $title;
+    text-transform: uppercase;
+  }
+}
+
+// Deportes
+
+.sport-row {
+  background-color: $white;
+  overflow: hidden;
+  border-bottom: 1px solid $grey;
+
+  .sport-image-container {
+    height: 450px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: all 0.8s ease;
+    }
+  }
+
+  &:hover {
+    img {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+  }
+
+  h3 {
+    font-family: $title;
+    letter-spacing: -1px;
+  }
+
+  .hazañas {
+    font-family: $text;
+    background-color: $grey;
+  }
+}
+
+// Historia
+
+.historia {
+  h2 {
+    font-family: $title;
+  }
+
+  p {
+    font-family: $text;
+  }
+}
+
+// Productos
+
+.product-card {
+  transition: all 0.5s ease;
+
+  .product-image-wrapper {
+    background-color: $grey;
+    padding: 30px;
+
+    .product-img {
+      transition: transform 0.5s ease;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+
+    .product-img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Socios
+
+.socios {
+  h1 {
+    font-family: $title;
+  }
+}
