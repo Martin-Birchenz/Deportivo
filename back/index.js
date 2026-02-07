@@ -1,18 +1,42 @@
 import dotenv from "dotenv";
 import express from "express";
-import { getConnection } from "./db/database.js";
+import cors from "cors";
+import { methods as authentication } from "./src/authentication.js";
+import { fileURLToPath } from "url";
+import path from "path";
+import cookieParser from "cookie-parser";
+import morgan from "morgan";
 
 dotenv.config({ debug: true });
 
 const app = express();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Middlewares
+app.use(morgan("dev"));
 app.use(express.json());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5500",
+      "http://127.0.0.1:5500",
+      "http://127.0.0.1:5501",
+      "http://localhost:5501",
+      "http://127.0.0.1:3000",
+      "http://localhost:3000",
+    ],
+    credentials: true,
+  }),
+);
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "../front")));
 
 // Puerto
 const port = process.env.PORT;
 app.listen(port, () => {
-  console.log(`Listening in port ${port}! http://localhost:3000/login`);
+  console.log(`Listening in port ${port}! http://localhost:3000:/login`);
 });
 
 // Rutas
@@ -20,61 +44,20 @@ app.get("/", async (req, res) => {
   res.send("Página de inicio");
 });
 
-app.get("/productos", async (req, res) => {
-  const connection = await getConnection();
-  const result = await connection.query("SELECT * FROM productos");
-  res.json(result);
+app.get("/productos");
+
+app.post("/register", authentication.register);
+
+app.get("/register", (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/pages/sesion/register.html"));
 });
 
-app.post(
-  ("/socios",
-  async (req, res) => {
-    const { nombre, dni, email } = req.body;
-    const connection = await getConnection();
-    connection.query(
-      "SELECT * FROM socios WHERE dni = ?",
-      dni,
-      async (error, result) => {
-        if (error) {
-          return res.status(500).send("Error en el servidor");
-        }
+app.post("/login", authentication.login);
 
-        if (result.length > 0) {
-          return res
-            .status(400)
-            .json({ message: "Este dni ya pertenece a un socio." });
-        } else {
-          const result = await connection.query(
-            "INSERT INTO socios (nombre, dni, email) VALUES (?, ?, ?)",
-            [nombre, dni, email],
-          );
-          res.json(result);
-        }
-      },
-    );
+app.get("/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "../front/pages/sesion/login.html"));
+});
 
-    connection.query(
-      "SELECT * FROM socios WHERE email = ?",
-      email,
-      async (error, result) => {
-        if (error) {
-          return res.status(500).send("Error en el servidor");
-        }
+app.post("/logout", authentication.logout);
 
-        if (result.length > 0) {
-          return res
-            .status(400)
-            .json({
-              message: "Este correo electrónico ya pertenece a un socio.",
-            });
-        } else {
-          const result = await connection.query(
-            "INSERT INTO socios (nombre, dni, email) VALUES (?, ?, ?)",
-            [nombre, dni, email],
-          );
-          res.json(result);
-        }
-      },
-    );
-  }),
-);
+app.post("/socios", authentication.socios);
