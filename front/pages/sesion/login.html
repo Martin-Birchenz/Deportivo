@@ -44,12 +44,13 @@
                   <h2 class="font-title fw-bold">Bienvenido</h2>
                   <p class="text-muted">Ingresá a tu cuenta del Depor</p>
                 </div>
-                <form>
+                <form id="login-form">
                   <div class="mb-3">
                     <label class="form-label small fw-bold"
                       >Correo Electrónico</label
                     >
                     <input
+                      id="email"
                       type="email"
                       class="form-control rounded-0"
                       required
@@ -58,6 +59,7 @@
                   <div class="mb-4">
                     <label class="form-label small fw-bold">Contraseña</label>
                     <input
+                      id="password"
                       type="password"
                       class="form-control rounded-0"
                       required
@@ -69,6 +71,9 @@
                   >
                     ENTRAR
                   </button>
+                  <p class="error-msg text-danger text-center mt-3 d-none">
+                    Error al registrarse. Intentá nuevamente.
+                  </p>
                   <div class="mt-4 text-center">
                     <a class="small text-muted d-block mb-2"
                       >¿Olvidaste tu contraseña? Comunicáte con secretaría +54 9
@@ -76,7 +81,7 @@
                     >
                     <p class="small">
                       ¿Nuevo en el club?
-                      <a href="./register" class="text-dark fw-bold"
+                      <a href="/register" class="text-dark fw-bold"
                         >Crear cuenta</a
                       >
                     </p>
@@ -137,7 +142,7 @@
         </div>
         <hr class="my-4 bg-secondary" />
         <p class="text-center fw-bold">
-          © 2026 Club Deportivo Nogoyá. Desarrollado por Martín.
+          © 2026 Club Deportivo Nogoyá. Desarrollado por un hincha.
         </p>
       </div>
     </footer>

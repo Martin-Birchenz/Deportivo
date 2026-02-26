@@ -3,8 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Club Deportivo Nogoyá | Estos son los productos que agregaste</title>
-    <meta name="description" content="Chequeá que todo esté correcto." />
+    <title>Club Deportivo Nogoyá | Tus detalles</title>
+    <meta
+      name="description"
+      content="Disfrutá de todos nuestros beneficios e instalaciones."
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -15,10 +18,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
     <link rel="icon" href="../../public/logo-deportivo.png" />
     <link rel="stylesheet" href="../../style/style.css" />
   </head>
-
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
       <div class="container">
@@ -57,12 +63,6 @@
               <a class="nav-link" href="/perfil">Mi Perfil</a>
             </li>
             <li class="nav-item">
-              <a href="/carrito" class="nav-link">
-                <i class="fa fa-shopping-cart"></i>
-                <span id="contador-carrito">0</span>
-              </a>
-            </li>
-            <li class="nav-item">
               <a
                 id="haceteSocio"
                 class="nav-link btn btn-outline-light ms-lg-3 px-3"
@@ -83,59 +83,90 @@
       </div>
     </nav>
 
-    <main>
-      <section class="py-5 bg-light min-vh-100">
-        <div class="container">
-          <h2 class="font-title mb-5 fw-bold text-uppercase tracking-wider">
-            Planilla de Pedido
-          </h2>
-
-          <div class="row g-4">
-            <div class="col-lg-8">
-              <div class="card border-0 shadow-sm p-4 rounded-0">
-                <div class="table-responsive" id="productos-container"></div>
+    <main class="container my-5">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex flex-column gap-4">
+            <div class="card shadow-sm border-0 p-4 text-center">
+              <div
+                id="nombreFoto"
+                class="bg-dark text-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3"
+                style="width: 70px; height: 70px; font-size: 1.5rem"
+              ></div>
+              <h4 id="nombreApellido" class="fw-bold mb-0"></h4>
+              <p id="socio" class="text-muted small fw-bold"></p>
+              <hr />
+              <div class="text-center">
+                <p id="dni" class="mb-2 fw-bold"></p>
+                <p id="categoria" class="mb-2 fw-bold"></p>
+                <button
+                  id="btn-baja"
+                  class="btn btn-outline-danger btn-sm mt-3 w-75 fw-bold"
+                >
+                  Solicitar Baja
+                </button>
               </div>
             </div>
-            <div class="col-lg-4">
-              <div
-                class="card border-0 shadow-sm p-4 rounded-0 bg-white border-top border-dark border-4"
+
+            <div class="card shadow-sm border-0 p-4 bg-white">
+              <h6 class="fw-bold mb-3">
+                <i class="bi bi-bank me-2"></i>Datos para Transferencia
+              </h6>
+              <div class="ps-1">
+                <p class="mb-1 small">
+                  <strong>Alias:</strong> depor.nogoya.pago
+                </p>
+                <p class="mb-1 small">
+                  <strong>CBU:</strong> 0000003100012345678901
+                </p>
+                <p class="mb-3 small">
+                  <strong>Titular:</strong> Club Deportivo Nogoyá
+                </p>
+              </div>
+              <button
+                id="btn-comprobante"
+                class="btn btn-success w-100 fw-bold"
               >
-                <h4 class="fw-bold mb-4">Total del Pedido</h4>
-                <div class="d-flex justify-content-between mb-2">
-                  <span>Monto a transferir:</span>
-                  <span class="fw-bold fs-3" id="total-pedido"></span>
-                </div>
-                <hr />
-                <div
-                  class="bg-grey p-3 mb-4 border border-dark border-opacity-10"
-                >
-                  <h6 class="fw-bold mb-2 small text-uppercase">
-                    Datos para la Transferencia:
-                  </h6>
-                  <p class="mb-1 small">
-                    <strong>Titular:</strong> Club Deportivo Nogoyá
-                  </p>
-                  <p class="mb-1 small">
-                    <strong>Alias:</strong> depor.nogoya.mp
-                  </p>
-                  <p class="mb-0 small"><strong>Banco:</strong> Mercado Pago</p>
-                </div>
-                <button
-                  onclick="enviarPedidoWhatsApp()"
-                  class="btn btn-success w-100 rounded-0 fw-bold py-3 shadow"
-                >
-                  <i class="fab fa-whatsapp me-2"></i> ENVIAR PEDIDO Y
-                  COMPROBANTE
-                </button>
-                <p class="small text-muted mt-3">
-                  * Al hacer clic, se abrirá un chat de WhatsApp con el detalle
-                  de tu compra para que adjuntes el comprobante.
+                <i class="bi bi-whatsapp me-2"></i>Enviar Comprobante
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="card shadow-sm border-0 p-4 h-100">
+            <h5 class="fw-bold mb-4">Estado de Cuenta</h5>
+
+            <div class="mb-4">
+              <p id="estado" class="mb-0"></p>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table align-middle">
+                <thead class="table-light">
+                  <tr>
+                    <th>Concepto</th>
+                    <th>Monto</th>
+                    <th>Mes</th>
+                    <th class="text-end">Estado</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+
+            <div class="pt-4">
+              <div class="p-3 bg-light rounded border">
+                <p class="mb-0 small text-muted">
+                  <i class="bi bi-info-circle me-2"></i>
+                  Recordá que estando al día accedés al
+                  <strong>20% de descuento</strong> en indumentaria oficial.
                 </p>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </main>
 
     <footer class="py-5">
@@ -192,9 +223,8 @@
     </footer>
 
     <script src="../../js/sesion/logout.js"></script>
-    <script src="../../js/productos/carrito.js"></script>
-    <script src="../../js/productos/misCompras.js"></script>
     <script src="../../js/socios/botonSocio.js"></script>
+    <script src="../../js/socios/perfil.js"></script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

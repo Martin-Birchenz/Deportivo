@@ -25,7 +25,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
       <div class="container">
-        <a href="../../index.html" class="navbar-brand fw-bold">
+        <a href="/" class="navbar-brand fw-bold">
           <img
             src="../../public/logo-deportivo.png"
             alt="Logo Oficial Del Depor"
@@ -45,30 +45,33 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto align-items-center">
             <li class="nav-item">
-              <a class="nav-link" href="../../index.html">Inicio</a>
+              <a class="nav-link" href="/">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./deportes.html">Deportes</a>
+              <a class="nav-link" href="/deportes">Deportes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../historia/historia.html">Historia</a>
+              <a class="nav-link" href="/historia">Historia</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../productos/indumentaria.html"
-                >Indumentaria</a
-              >
+              <a class="nav-link" href="/indumentaria">Indumentaria</a>
+            </li>
+            <li class="nav-item" id="miPerfil">
+              <a class="nav-link" href="/perfil">Mi Perfil</a>
             </li>
             <li class="nav-item">
               <a
+                id="haceteSocio"
                 class="nav-link btn btn-outline-light ms-lg-3 px-3"
-                href="../socios/socios.html"
+                href="/socios"
                 >Hacete socio</a
               >
             </li>
             <li class="nav-item">
               <a
+                id="cerrar-sesion"
                 class="nav-link btn btn-outline-light text-danger ms-lg-3"
-                href="../sesion/login.html"
+                href="/login"
                 >Cerrar sesión</a
               >
             </li>
@@ -345,10 +348,13 @@
         </div>
         <hr class="my-4 bg-secondary" />
         <p class="text-center fw-bold">
-          © 2026 Club Deportivo Nogoyá. Desarrollado por Martín.
+          © 2026 Club Deportivo Nogoyá. Desarrollado por un hincha.
         </p>
       </div>
     </footer>
+
+    <script src="../../js/sesion/logout.js"></script>
+    <script src="../../js/socios/botonSocio.js"></script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

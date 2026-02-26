@@ -46,6 +46,10 @@ registerForm.addEventListener("submit", async (e) => {
     const resJson = await res.json();
 
     if (resJson.redirect) {
+      localStorage.setItem("id", resJson.id);
+      localStorage.setItem("socioPago", resJson.socioPago);
+      localStorage.setItem("socioNoPago", resJson.socioNoPago);
+      localStorage.setItem("noSocio", resJson.noSocio);
       window.location.href = resJson.redirect;
     }
   } catch (error) {
