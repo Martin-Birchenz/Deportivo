@@ -84,7 +84,7 @@ app.get("/register", authorization.publico, (req, res) => {
   res.sendFile(path.join(__dirname, "../front/pages/sesion/register.html"));
 });
 
-app.post("/login", authentication.login);
+app.post("/api/login", authentication.login);
 
 app.get("/login", authorization.publico, (req, res) => {
   const ruta = path.join(__dirname, "../front/pages/sesion/login.html");
