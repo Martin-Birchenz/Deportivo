@@ -42,7 +42,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const tablaBody = document.querySelector("tbody");
     tablaBody.innerHTML = "";
-    const fila = `
+
+    if (datos.pago === 0) {
+      const fila = `
         <tr>
             <td>Cuota Social Mensual</td>
             <td class="fw-bold">$2.500</td>
@@ -52,8 +54,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             </td>
         </tr>
     `;
-
-    tablaBody.innerHTML = fila;
+      tablaBody.innerHTML = fila;
+    } else {
+      tablaBody.innerHTML = `<tr><td colspan="4" class="text-center text-muted fw-bold">No tenés pagos pendientes este mes</td></tr>`;
+    }
 
     document.getElementById("btn-baja").addEventListener("click", () => {
       const confirmar = confirm(

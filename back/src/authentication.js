@@ -46,7 +46,7 @@ async function register(req, res) {
       { nombre: nombre },
       process.env.JWT_SECRET,
       {
-        expiresIn: process.env.JWT_EXP,
+        expiresIn: "24h",
       },
     );
 
@@ -152,7 +152,7 @@ async function login(req, res) {
       },
       process.env.JWT_SECRET,
       {
-        expiresIn: process.env.JWT_EXP,
+        expiresIn: "24h",
       },
     );
 
