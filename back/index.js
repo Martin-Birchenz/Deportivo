@@ -33,7 +33,7 @@ app.use(
   }),
 );
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, "../front")));
+app.use(express.static(path.join(__dirname, "../front")));
 app.use("/style", express.static(path.join(__dirname, "../front/style")));
 app.use("/js", express.static(path.join(__dirname, "../front/js")));
 app.use("/public", express.static(path.join(__dirname, "../front/public")));
