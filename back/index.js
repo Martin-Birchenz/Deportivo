@@ -41,7 +41,7 @@ app.use(
   }),
 );
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "..", "front")));
+app.use(express.static(path.join(__dirname, "../front")));
 app.use("/style", express.static(path.join(__dirname, "../front/style")));
 app.use("/js", express.static(path.join(__dirname, "../front/js")));
 app.use("/public", express.static(path.join(__dirname, "../front/public")));
@@ -87,14 +87,7 @@ app.get("/register", authorization.publico, (req, res) => {
 app.post("/login", authentication.login);
 
 app.get("/login", authorization.publico, (req, res) => {
-  const ruta = path.join(
-    __dirname,
-    "..",
-    "front",
-    "pages",
-    "sesion",
-    "login.html",
-  );
+  const ruta = path.join(__dirname, "../front/pages/sesion/login.html");
   console.log("INTENTANDO CARGAR: ", ruta);
   res.sendFile(ruta);
 });
