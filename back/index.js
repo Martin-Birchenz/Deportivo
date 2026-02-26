@@ -79,7 +79,7 @@ app.get("/register", authorization.publico, (req, res) => {
 app.post("/login", authentication.login);
 
 app.get("/login", authorization.publico, (req, res) => {
-  res.sendFile(path.join(__dirname, "../../front/pages/sesion/login.html"));
+  res.sendFile(path.join(__dirname, "../front/pages/sesion/login.html"));
 });
 
 app.get("/deportes", authorization.admin, (req, res) => {
