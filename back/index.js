@@ -79,7 +79,9 @@ app.get("/register", authorization.publico, (req, res) => {
 app.post("/login", authentication.login);
 
 app.get("/login", authorization.publico, (req, res) => {
-  res.sendFile(path.join(__dirname, "../front/pages/sesion/login.html"));
+  const ruta = path.join(__dirname, "../front/pages/sesion/login.html");
+  console.log("INTENTANDO CARGAR: ", ruta);
+  res.sendFile(ruta);
 });
 
 app.get("/deportes", authorization.admin, (req, res) => {
