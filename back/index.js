@@ -1,3 +1,4 @@
+import fs from "fs";
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
@@ -15,6 +16,13 @@ const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+console.log("DIRECTORIO ACTUAL: ", __dirname);
+console.log("CONTENIDO DE LA CARPETA ACTUAL: ", fs.readdirSync(__dirname));
+console.log(
+  "CONTENIDO DE LA CARPETA SUPERIOR: ",
+  fs.readdirSync(path.join(__dirname, "..")),
+);
 
 // Middlewares
 app.use(morgan("dev"));

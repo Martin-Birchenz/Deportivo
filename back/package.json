@@ -12,6 +12,7 @@
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "font-awesome": "^4.7.0",
+    "fs": "^0.0.1-security",
     "immutable": "^5.1.4",
     "is-extglob": "^2.1.1",
     "is-glob": "^4.0.3",
