@@ -43,7 +43,7 @@ async function register(req, res) {
     const expira = parseInt(process.env.JWT_COOKIE_EXP || 1);
 
     const token = JsonWebToken.sign(
-      { nombre: nombre },
+      { id: nuevoUsuarioId, nombre: nombre },
       process.env.JWT_SECRET,
       {
         expiresIn: "24h",
@@ -160,8 +160,8 @@ async function login(req, res) {
       expires: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000),
       path: "/",
       httpOnly: true,
-      sameSite: "lax",
-      secure: false,
+      sameSite: "none",
+      secure: true,
     };
 
     console.log("Seteando cookie con opciones: ", cookieOption);
@@ -186,8 +186,8 @@ async function logout(req, res) {
   res.clearCookie("jwt", {
     path: "/",
     httpOnly: true,
-    sameSite: "lax",
-    secure: false,
+    sameSite: "none",
+    secure: true,
   });
 
   return res.status(200).send({ status: "ok", message: "Sesión cerrada" });
