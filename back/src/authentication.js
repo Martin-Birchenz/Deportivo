@@ -54,8 +54,8 @@ async function register(req, res) {
       expires: new Date(Date.now() + expira * 24 * 60 * 60 * 1000),
       path: "/",
       httpOnly: true,
-      sameSite: "lax",
-      secure: false,
+      sameSite: "none",
+      secure: true,
     };
 
     console.log("Seteando cookie con opciones: ", cookieOption);
@@ -71,7 +71,7 @@ async function register(req, res) {
           .status(400)
           .send({ status: "Error", message: "Faltan datos" });
       } else {
-        connection.query(
+        await connection.query(
           "INSERT INTO socios (dni, categoria, pago, id_usuarios ) VALUES (?, ?, ?, ?)",
           [dni, categoria, 0, nuevoUsuarioId],
         );
