@@ -29,14 +29,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(
   cors({
-    origin: [
-      "http://localhost:5500",
-      "http://127.0.0.1:5500",
-      "http://127.0.0.1:5501",
-      "http://localhost:5501",
-      "http://127.0.0.1:3000",
-      "http://localhost:3000",
-    ],
+    origin: process.env.PUBLIC_URL || true,
     credentials: true,
   }),
 );
@@ -62,7 +55,7 @@ app.listen(port, () => {
 
 // Rutas
 app.get("/", authorization.admin, (req, res) => {
-  res.sendFile(path.join(__dirname, "../front/index.html"));
+  res.sendFile(path.join(__dirname, "../front/home.html"));
 });
 
 app.get("/productos", async (req, res) => {
@@ -84,7 +77,7 @@ app.get("/register", authorization.publico, (req, res) => {
   res.sendFile(path.join(__dirname, "../front/pages/sesion/register.html"));
 });
 
-app.post("/api/login", authentication.login);
+app.post("/login", authentication.login);
 
 app.get("/login", authorization.publico, (req, res) => {
   const ruta = path.join(__dirname, "../front/pages/sesion/login.html");
