@@ -50,7 +50,7 @@ function crearTarjetasProductos(productos) {
 // Obtenemos los datos del servidor
 async function cargarIndumentaria() {
   try {
-    const res = await fetch("http://localhost:4000/productos"); // Reclamamos los datos
+    const res = await fetch("/productos"); // Reclamamos los datos
     const productos = await res.json(); // Convertimos la respuesta en formato JSON
     crearTarjetasProductos(productos);
     console.log("DATOS RECIBIDOS EN EL FRONTEND: ", productos);

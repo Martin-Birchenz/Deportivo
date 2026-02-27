@@ -22,7 +22,7 @@ function crearTarjetasProductosInicio(productos) {
 
 async function cargarProductosInicio() {
   try {
-    const res = await fetch("http://localhost:4000/productosInicio");
+    const res = await fetch("/productosInicio");
     const [productos] = await res.json();
     crearTarjetasProductosInicio(productos);
     console.log("DATOS RECIBIDOS EN EL FRONTEND: ", productos);
