@@ -138,8 +138,8 @@ function enviarPedidoWhatsApp() {
   filas.forEach((fila) => {
     const nombre = fila.querySelector(".nombre").innerText;
     const talle = fila.querySelector(".select-talle").value;
-    const cantidad = fila.querySelector(".cantidad").value;
-    const total = fila.querySelector(".total").value;
+    const cantidad = fila.querySelector(".cantidad").innerText;
+    const total = fila.querySelector(".total").innerText;
 
     mensaje += `• *${nombre}*\n Talle: ${talle} | Cantidad: ${cantidad} | ${total}\n\n `;
   });
