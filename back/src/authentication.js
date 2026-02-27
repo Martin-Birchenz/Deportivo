@@ -42,6 +42,9 @@ async function register(req, res) {
 
     const expira = parseInt(process.env.JWT_COOKIE_EXP || 1);
 
+    const nuevoUsuarioId = resultado.insertId;
+    console.log("Nuevo ID generado: ", nuevoUsuarioId);
+
     const token = JsonWebToken.sign(
       { id: nuevoUsuarioId, nombre: nombre },
       process.env.JWT_SECRET,
@@ -61,9 +64,6 @@ async function register(req, res) {
     console.log("Seteando cookie con opciones: ", cookieOption);
 
     res.cookie("jwt", token, cookieOption);
-
-    const nuevoUsuarioId = resultado.insertId;
-    console.log("Nuevo ID generado: ", nuevoUsuarioId);
 
     if (quiereSerSocio) {
       if (!dni || !categoria) {
