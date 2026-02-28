@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             <td class="fw-bold">$${Number(cuota.monto).toLocaleString("es-ar")}</td>
             <td> ${cuota.mes} ${cuota.anio} </td>
             <td class="text-end">
-                <span class="badge ${cuota.estado === "pago" ? "bg-success" : "bg-danger"}"> ${cuota.monto === "pago" ? "Pago" : } </span>
+                <span class="badge ${cuota.estado === "pago" ? "bg-success" : "bg-danger"}"> ${cuota.estado === "pago" ? "Pago" : "Pendiente"} </span>
             </td>
         </tr>
     `;
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       tablaBody.innerHTML = `<tr><td colspan="4" class="text-center text-muted fw-bold">No tenés pagos pendientes este mes</td></tr>`;
     }
 
-     document.getElementById("btn-comprobante").addEventListener("click", () => {
+    document.getElementById("btn-comprobante").addEventListener("click", () => {
       const mensaje = `¡Hola! Soy ${datos.nombre} ${datos.apellido}. Adjunto el comprobante de pago para el mes de ${datos.mes}.`;
       window.open(
         `https://wa.me/+5493435611122?text=${encodeURIComponent(mensaje)}`,
