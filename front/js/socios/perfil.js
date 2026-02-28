@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const datos = await res.json();
+    const cuotas = datos.cuotas || [];
 
     const tablaBody = document.querySelector("tbody");
     tablaBody.innerHTML = "";

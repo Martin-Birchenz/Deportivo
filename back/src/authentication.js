@@ -214,12 +214,12 @@ async function perfil(req, res) {
   try {
     const connection = await getConnection();
 
-    const [datos] = await connection.query(
+    const [datos] = await connection.execute(
       "SELECT u.nombre, u.apellido, s.dni, s.categoria, s.pago FROM usuarios u LEFT JOIN socios s ON u.id_usuarios = s.id_usuarios WHERE u.id_usuarios = ?",
       [id],
     );
 
-    const [cuotas] = await connection.query(
+    const [cuotas] = await connection.execute(
       "SELECT mes, anio, monto, estado FROM cuotas WHERE id_usuario = ? ORDER BY anio DESC, id_cuota DESC",
     );
 
