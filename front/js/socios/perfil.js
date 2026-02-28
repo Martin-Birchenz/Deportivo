@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   const id = localStorage.getItem("id");
 
   if (!id) {
-    console.log("NO SE ENCONTRÓ EL ID EN EL ALMACENAMIENTO LOCAL");
     window.location.href = "/login";
     return;
   }
@@ -10,20 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const res = await fetch(`/perfil/${id}`);
 
-    const meses = [
-      "Enero",
-      "Febrero",
-      "Marzo",
-      "Abril",
-      "Junio",
-      "Julio",
-      "Agosto",
-      "Septiembre",
-      "Octubre",
-      "Noviembre",
-      "Diciembre",
-    ];
-    const mesActual = meses[new Date().getMonth()];
+    if (!res.ok) throw new Error("Error en la petición");
 
     document.getElementById("btn-comprobante").addEventListener("click", () => {
       const nombre = document.getElementById("nombreApellido").innerText;
@@ -43,28 +29,38 @@ document.addEventListener("DOMContentLoaded", async () => {
     const tablaBody = document.querySelector("tbody");
     tablaBody.innerHTML = "";
 
-    if (datos.pago === 0) {
-      const fila = `
+    if (datos.cuotas && datos.cuotas.length > 0) {
+      datos.cuotas.forEach((cuota) => {
+        const fila = `
         <tr>
             <td>Cuota Social Mensual</td>
-            <td class="fw-bold">$2.500</td>
-            <td> ${mesActual} </td>
+            <td class="fw-bold">$${Number(cuota.monto).toLocaleString("es-ar")}</td>
+            <td> ${cuota.mes} ${cuota.anio} </td>
             <td class="text-end">
-                ${datos.pago === 1 ? `<span class="badge bg-success">Pago</span>` : `<span class="badge bg-danger">Pendiente</span>`}
+                <span class="badge ${cuota.estado === "pago" ? "bg-success" : "bg-danger"}"> ${cuota.monto === "pago" ? "Pago" : } </span>
             </td>
         </tr>
     `;
-      tablaBody.innerHTML = fila;
+        tablaBody.innerHTML += fila;
+      });
     } else {
       tablaBody.innerHTML = `<tr><td colspan="4" class="text-center text-muted fw-bold">No tenés pagos pendientes este mes</td></tr>`;
     }
+
+     document.getElementById("btn-comprobante").addEventListener("click", () => {
+      const mensaje = `¡Hola! Soy ${datos.nombre} ${datos.apellido}. Adjunto el comprobante de pago para el mes de ${datos.mes}.`;
+      window.open(
+        `https://wa.me/+5493435611122?text=${encodeURIComponent(mensaje)}`,
+        "_blank",
+      );
+    });
 
     document.getElementById("btn-baja").addEventListener("click", () => {
       const confirmar = confirm(
         "¿Estás seguro de que deseas solicitar la baja de socio?",
       );
       if (confirmar) {
-        const mensaje = `Hola, soy ${document.getElementById("nombreApellido").innerText} (DNI: ${datos.dni}) y quiero solicitar mi baja de socio.`;
+        const mensaje = `Hola, soy ${datos.nombre} ${datos.apellido} (DNI: ${datos.dni}) y quiero solicitar mi baja de socio.`;
         window.open(
           `https://wa.me/+5493435611122?text=${encodeURIComponent(mensaje)}`,
           "_blank",
@@ -82,11 +78,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("categoria").innerText =
       `Categoría: ${datos.categoria}`;
     const estado = document.getElementById("estado");
+    const deudas = datos.cuotas.some((c) => c.estado === "pendiente");
 
-    if (datos.pago === 1) {
+    if (!deudas) {
       estado.className = "bi bi-check-circle-fill text-success fs-2 fw-bold";
       estado.innerText = " Estás al día";
-    } else if (datos.pago === 0) {
+    } else if (deudas) {
       estado.className =
         "bi bi-exclamation-octagon-fill text-danger fs-2 fw-bold";
       estado.innerText = "  Cuotas pendientes";

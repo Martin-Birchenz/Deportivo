@@ -219,11 +219,15 @@ async function perfil(req, res) {
       [id],
     );
 
+    const [cuotas] = await connection.query(
+      "SELECT mes, anio, monto, estado FROM cuotas WHERE id_usuario = ? ORDER BY anio DESC, id_cuota DESC",
+    );
+
     if (datos.length === 0) {
       return res.status(404).send({ message: "Usuario no encontrado" });
     }
 
-    return res.json(datos[0]);
+    return res.json({ ...datos[0], cuotas: cuotas });
   } catch (error) {
     console.log(error);
   }

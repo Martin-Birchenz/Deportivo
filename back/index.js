@@ -2,6 +2,7 @@ import fs from "fs";
 import dotenv from "dotenv";
 import express from "express";
 import cors from "cors";
+import nodeCron from "node-cron";
 import { methods as authentication } from "./src/authentication.js";
 import { methods as authorization } from "./src/authorization.js";
 import { fileURLToPath } from "url";
@@ -45,6 +46,49 @@ app.use(
 app.use((req, res, next) => {
   console.log(`Petición recibida: ${req.method} ${req.url}`);
   next();
+});
+
+nodeCron.schedule("0 0 1 * *", async () => {
+  const meses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Noviembre",
+    "Diciembre",
+  ];
+  const fechaActual = new Date();
+  const mes = meses[fechaActual.getMonth()];
+  const año = fechaActual.getFullYear();
+
+  try {
+    const connection = getConnection();
+    const [socios] = (await connection).query("SELECT id_usuarios FROM socios");
+    for (const socio of socios) {
+      const [existe] = (await connection).query(
+        "SELECT * FROM cuotas WHERE id_usuario = ? AND mes = ? AND anio = ?",
+        [socio.id_usuarios, mes, año],
+      );
+      if (existe.length === 0) {
+        (await connection).query(
+          "INSERT INTO cuotas (id_usuario, mes, anio, monto, estado) VALUES (?, ?, ?, ?, `pendiente`)",
+          socio.id_usuarios,
+          mes,
+          año,
+          2500.0,
+        );
+      }
+    }
+
+    console.log(`Cuotas de ${mes} generadas para ${socios.length} socios.`);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 // Puerto
