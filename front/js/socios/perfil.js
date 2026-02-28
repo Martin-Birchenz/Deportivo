@@ -11,15 +11,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!res.ok) throw new Error("Error en la petición");
 
-    document.getElementById("btn-comprobante").addEventListener("click", () => {
-      const nombre = document.getElementById("nombreApellido").innerText;
-      const mensaje = `¡Hola! Soy ${nombre}. Adjunto el comprobante de pago para el mes de ${mesActual}.`;
-      window.open(
-        `https://wa.me/+5493435611122?text=${encodeURIComponent(mensaje)}`,
-        "_blank",
-      );
-    });
-
     if (!res.ok) {
       console.log("ERROR EN LA PETICIÓN: ", res.status);
     }
