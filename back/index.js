@@ -70,24 +70,21 @@ nodeCron.schedule("* * * * *", async () => {
 
   try {
     console.log(`Buscando socios para el mes de ${mes}`);
-    const connection = getConnection();
+    const connection = await getConnection();
     const [socios] = await connection.query("SELECT id_usuarios FROM socios");
     console.log(`${socios.length} socios detectados.`);
     for (const socio of socios) {
       console.log(`Procesando socio ID: ${socio.id_usuarios}`);
-      const [existe] = (await connection).query(
+      const [existe] = await connection.query(
         "SELECT * FROM cuotas WHERE id_usuario = ? AND mes = ? AND anio = ?",
         [socio.id_usuarios, mes, año],
       );
       if (existe.length === 0) {
-        console
-          .log(`Insertando cuota para el ID ${socios.id_usuarios}`)(
-            await connection,
-          )
-          .query(
-            "INSERT INTO cuotas (id_usuario, mes, anio, monto, estado) VALUES (?, ?, ?, ?, 'pendiente')",
-            [socio.id_usuarios, mes, año, 2500.0],
-          );
+        console.log(`Insertando cuota para el ID ${socios.id_usuarios}`);
+        await connection.query(
+          "INSERT INTO cuotas (id_usuario, mes, anio, monto, estado) VALUES (?, ?, ?, ?, 'pendiente')",
+          [socio.id_usuarios, mes, año, 2500.0],
+        );
       } else {
         console.log(
           `El socio con ID ${socio.id_usuarios} ya tiene deudas para este mes.`,
