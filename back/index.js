@@ -59,6 +59,7 @@ nodeCron.schedule("0 0 1 * *", async () => {
     "Julio",
     "Agosto",
     "Septiembre",
+    "Octubre",
     "Noviembre",
     "Diciembre",
   ];
@@ -68,7 +69,7 @@ nodeCron.schedule("0 0 1 * *", async () => {
 
   try {
     const connection = getConnection();
-    const [socios] = (await connection).query("SELECT id_usuarios FROM socios");
+    const [socios] = await connection.query("SELECT id_usuarios FROM socios");
     for (const socio of socios) {
       const [existe] = (await connection).query(
         "SELECT * FROM cuotas WHERE id_usuario = ? AND mes = ? AND anio = ?",
@@ -76,11 +77,8 @@ nodeCron.schedule("0 0 1 * *", async () => {
       );
       if (existe.length === 0) {
         (await connection).query(
-          "INSERT INTO cuotas (id_usuario, mes, anio, monto, estado) VALUES (?, ?, ?, ?, `pendiente`)",
-          socio.id_usuarios,
-          mes,
-          año,
-          2500.0,
+          "INSERT INTO cuotas (id_usuario, mes, anio, monto, estado) VALUES (?, ?, ?, ?, 'pendiente')",
+          [socio.id_usuarios, mes, año, 2500.0],
         );
       }
     }

@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const datos = await res.json();
-    const cuotas = datos.cuotas || [];
 
     const tablaBody = document.querySelector("tbody");
     tablaBody.innerHTML = "";
@@ -72,7 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const estado = document.getElementById("estado");
     const deudas = datos.cuotas.some((c) => c.estado === "pendiente");
 
-    if (!deudas) {
+    if (!deudas && datos.pago !== 0) {
       estado.className = "bi bi-check-circle-fill text-success fs-2 fw-bold";
       estado.innerText = " Estás al día";
     } else if (deudas) {
