@@ -48,7 +48,7 @@ app.use((req, res, next) => {
   next();
 });
 
-nodeCron.schedule("0 0 1 * *", async () => {
+nodeCron.schedule("* * * * *", async () => {
   console.log("Iniciando Cron. Comienza el proceso de cuotas.");
   const meses = [
     "Enero",
