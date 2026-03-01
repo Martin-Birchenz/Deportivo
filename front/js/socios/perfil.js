@@ -71,13 +71,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     const estado = document.getElementById("estado");
     const deudas = datos.cuotas.some((c) => c.estado === "pendiente");
 
-    if (!deudas && datos.pago !== 0) {
-      estado.className = "bi bi-check-circle-fill text-success fs-2 fw-bold";
-      estado.innerText = " Estás al día";
-    } else if (deudas) {
+    if (deudas) {
       estado.className =
         "bi bi-exclamation-octagon-fill text-danger fs-2 fw-bold";
       estado.innerText = "  Cuotas pendientes";
+    } else {
+      estado.className = "bi bi-check-circle-fill text-success fs-2 fw-bold";
+      estado.innerText = " Estás al día";
     }
   } catch (error) {
     console.log(error);
