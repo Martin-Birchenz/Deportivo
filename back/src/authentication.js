@@ -220,7 +220,7 @@ async function perfil(req, res) {
     );
 
     const [cuotas] = await connection.query(
-      "SELECT mes, anio, monto, estado FROM cuotas WHERE id_usuario = ? ORDER BY anio DESC, id_cuota DESC",
+      "SELECT mes, anio, monto, estado FROM cuotas WHERE id_usuarios = ? ORDER BY anio DESC, id_cuota DESC",
       [id],
     );
 
