@@ -80,7 +80,7 @@ nodeCron.schedule("* * * * *", async () => {
         [socio.id_usuarios, mes, año],
       );
       if (existe.length === 0) {
-        console.log(`Insertando cuota para el ID ${socios.id_usuarios}`);
+        console.log(`Insertando cuota para el ID ${socio.id_usuarios}`);
         await connection.query(
           "INSERT INTO cuotas (id_usuario, mes, anio, monto, estado) VALUES (?, ?, ?, ?, 'pendiente')",
           [socio.id_usuarios, mes, año, 2500.0],
