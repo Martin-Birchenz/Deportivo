@@ -48,7 +48,7 @@ app.use((req, res, next) => {
   next();
 });
 
-nodeCron.schedule("* * * * *", async () => {
+nodeCron.schedule("0 0 1 * *", async () => {
   console.log("Iniciando Cron. Comienza el proceso de cuotas.");
   const meses = [
     "Enero",
@@ -73,14 +73,6 @@ nodeCron.schedule("* * * * *", async () => {
     const connection = await getConnection();
     const [socios] = await connection.query("SELECT id_usuarios FROM socios");
     console.log(`${socios.length} socios detectados.`);
-
-    console.log("------------------------------------------");
-    console.log("INSPECCIÓN TÉCNICA DE SOCIOS:");
-    console.log("Tipo de dato:", typeof socios[0]);
-    console.log("Contenido crudo del primer socio:", JSON.stringify(socios[0]));
-    console.log("Nombres de las propiedades:", Object.keys(socios[0]));
-    console.log("------------------------------------------");
-
     for (const socio of socios) {
       const idSocio = socio.id_usuarios || Object.values(socio)[0];
       console.log(`Procesando socio ID: ${idSocio}`);
