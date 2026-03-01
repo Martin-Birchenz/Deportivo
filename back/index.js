@@ -82,16 +82,21 @@ nodeCron.schedule("* * * * *", async () => {
     console.log("------------------------------------------");
 
     for (const socio of socios) {
-      console.log(`Procesando socio ID: ${socio.id_usuarios}`);
+      const idSocio = socio.id_usuarios || Object.values(socio)[0];
+      console.log(`Procesando socio ID: ${idSocio}`);
+      if (idSocio === null || idSocio === undefined) {
+        console.log("No se puede leer el ID del socio");
+        continue;
+      }
       const [existe] = await connection.query(
         "SELECT * FROM cuotas WHERE id_usuarios = ? AND mes = ? AND anio = ?",
-        [socio.id_usuarios, mes, año],
+        [idSocio, mes, año],
       );
       if (existe.length === 0) {
-        console.log(`Insertando cuota para el ID ${socio.id_usuarios}`);
+        console.log(`Insertando cuota para el ID ${idSocio}`);
         await connection.query(
           "INSERT INTO cuotas (id_usuarios, mes, anio, monto, estado) VALUES (?, ?, ?, ?, 'pendiente')",
-          [socio.id_usuarios, mes, año, 2500.0],
+          [idSocio, mes, año, 2500.0],
         );
       } else {
         console.log(
