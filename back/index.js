@@ -69,6 +69,11 @@ nodeCron.schedule("* * * * *", async () => {
   const año = fechaActual.getFullYear();
 
   try {
+    console.log(`Buscando socios para el mes de ${mes}`);
+    const connection = await getConnection();
+    const [socios] = await connection.query("SELECT id_usuarios FROM socios");
+    console.log(`${socios.length} socios detectados.`);
+
     console.log("------------------------------------------");
     console.log("INSPECCIÓN TÉCNICA DE SOCIOS:");
     console.log("Tipo de dato:", typeof socios[0]);
@@ -76,10 +81,6 @@ nodeCron.schedule("* * * * *", async () => {
     console.log("Nombres de las propiedades:", Object.keys(socios[0]));
     console.log("------------------------------------------");
 
-    console.log(`Buscando socios para el mes de ${mes}`);
-    const connection = await getConnection();
-    const [socios] = await connection.query("SELECT id_usuarios FROM socios");
-    console.log(`${socios.length} socios detectados.`);
     for (const socio of socios) {
       console.log(`Procesando socio ID: ${socio.id_usuarios}`);
       const [existe] = await connection.query(
